@@ -37,11 +37,43 @@ Crie o banco de dados:
 Depois configure o arquivo .env com os dados do seu banco:
 
 ```
+#--------------------------------------------------------------------
+# ENVIRONMENT
+#--------------------------------------------------------------------
+CI_ENVIRONMENT = development
+
+#--------------------------------------------------------------------
+# APP
+#--------------------------------------------------------------------
+app.baseURL = 'http://localhost/changelog_manager/public/'
+app.indexPage = ''
+app.uriProtocol = 'REQUEST_URI'
+
+#--------------------------------------------------------------------
+# DATABASE
+#--------------------------------------------------------------------
 database.default.hostname = localhost
-database.default.database = changelog
+database.default.database = changelog_manager
 database.default.username = root
-database.default.password = sua senha
+database.default.password = 
 database.default.DBDriver = MySQLi
+database.default.DBPrefix =
+database.default.port = 3306
+database.default.charset = utf8mb4
+database.default.DBCollat = utf8mb4_general_ci
+
+#--------------------------------------------------------------------
+# SESSION
+#--------------------------------------------------------------------
+session.driver = 'CodeIgniter\Session\Handlers\FileHandler'
+session.savePath = WRITEPATH . 'session'
+session.cookieName = ci_session
+session.expiration = 7200
+
+#--------------------------------------------------------------------
+# LOG
+#--------------------------------------------------------------------
+logger.threshold = 4
 ```
 ## 🔄 Migrations
 
