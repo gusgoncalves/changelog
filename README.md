@@ -9,7 +9,7 @@
 - Bootstrap (se estiver usando)
 
 ## Informações Básicas
-Se o que precisa é apenas configuraar o changelog no sistema Legado, [Configuração](#configuracao)
+Se o que precisa é apenas configurar o changelog no sistema Legado, [Configuração](#-configuração)
 
 ## Instalação do Sistema
 
@@ -114,7 +114,7 @@ http://localhost:8080
 Este projeto está sob a licença MIT.
 
 ---
-## Configuração
+## 🔧 Configuração
 No sistema Legado crie as tabelas:
 
 ### Para Postgres
@@ -131,7 +131,7 @@ CREATE TABLE changelog (
 -- índice pra performance
 CREATE INDEX idx_changelog_versao ON changelog (versao);
 ```
-# Para MYSQL
+### Para MYSQL
 ```sql
 CREATE TABLE changelog (
     id INT AUTO_INCREMENT PRIMARY KEY,
