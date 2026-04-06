@@ -8,6 +8,9 @@
 - MySQL
 - Bootstrap (se estiver usando)
 
+## Informações Básicas
+Se o que precisa é apenas configuraar o changelog no sistema Legado, [Configuração](#configuracao)
+
 ## Instalação do Sistema
 
 Execute o comando abaixo para criar o projeto:
@@ -109,3 +112,37 @@ http://localhost:8080
 ### Licença
 
 Este projeto está sob a licença MIT.
+
+---
+## Configuração
+No sistema Legado crie as tabelas:
+
+### Para Postgres
+```sql
+CREATE TABLE changelog (
+    id SERIAL PRIMARY KEY,
+    versao VARCHAR(20) NOT NULL,
+    titulo VARCHAR(255),
+    descricao TEXT,
+    ordem INT DEFAULT 0,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- índice pra performance
+CREATE INDEX idx_changelog_versao ON changelog (versao);
+```
+# Para MYSQL
+```sql
+CREATE TABLE changelog (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    versao VARCHAR(20) NOT NULL,
+    titulo VARCHAR(255),
+    descricao TEXT,
+    ordem INT DEFAULT 0,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_changelog_versao ON changelog (versao);
+```
+
+
